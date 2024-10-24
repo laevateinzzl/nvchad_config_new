@@ -7,6 +7,9 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
+-- buffer Leader bd close buffer
+map("n", "<Leader>bd", "<cmd>lua vim.cmd('bnext<bar>bd#')<CR>", { desc = "Close buffer" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 -- Nvim DAP
 map("n", "<Leader>dl", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debugger step into" })
@@ -28,3 +31,6 @@ map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "De
 
 -- project
 map("n", "<Leader>pp", "<cmd>lua vim.cmd('Telescope projects')<CR>", { desc = "Project manager" })
+
+-- symbols
+map("n", "<Leader>fs", "<cmd>lua vim.cmd('Telescope lsp_document_symbols')<CR>", { desc = "Project manager" })
