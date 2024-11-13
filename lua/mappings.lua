@@ -30,7 +30,7 @@ map("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugge
 map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
 
 -- project
-map("n", "<Leader>pp", "<cmd>lua vim.cmd('Telescope projects')<CR>", { desc = "Project manager" })
+map("n", "<Leader>pp", "<cmd>lua vim.cmd('ProjectMgr')<CR>", { desc = "Project manager" })
 
 -- symbols
 map("n", "<Leader>fs", "<cmd>lua vim.cmd('Telescope lsp_document_symbols')<CR>", { desc = "Project manager" })

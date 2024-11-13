@@ -144,22 +144,22 @@ return {
       -- refer to the configuration section below
     },
   },
-  {
-    "jay-babu/project.nvim",
-    main = "project_nvim",
-    event = "VeryLazy",
-    opts = { ignore_lsp = { "lua_ls" } },
-    specs = {
-      {
-        "nvim-telescope/telescope.nvim",
-        optional = true,
-        dependencies = { "jay-babu/project.nvim" },
-        opts = function()
-          require("telescope").load_extension "projects"
-        end,
-      },
-    },
-  },
+  -- {
+  --   "jay-babu/project.nvim",
+  --   main = "project_nvim",
+  --   event = "VeryLazy",
+  --   opts = { ignore_lsp = { "lua_ls" } },
+  --   specs = {
+  --     {
+  --       "nvim-telescope/telescope.nvim",
+  --       optional = true,
+  --       dependencies = { "jay-babu/project.nvim" },
+  --       opts = function()
+  --         require("telescope").load_extension "projects"
+  --       end,
+  --     },
+  --   },
+  -- },
   {
     "ray-x/sad.nvim",
     dependencies = { "ray-x/guihua.lua", build = "cd lua/fzy && make" },
@@ -240,5 +240,39 @@ return {
     end,
     ---@type gopher.Config
     opts = {},
+  },
+  {
+    "charludo/projectmgr.nvim",
+    lazy = false, -- important!
+  },
+  -- {
+  --   "SmiteshP/nvim-navic",
+  --   event = "LspAttach",
+  --   config = function()
+  --     dofile(vim.g.base46_cache .. "navic")
+  --
+  --     require("nvim-navic").setup {
+  --       highlight = true,
+  --       lsp = { auto_attach = true },
+  --     }
+  --
+  --     vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+  --   end,
+  -- },
+  {
+    "nvimdev/lspsaga.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter", -- optional
+      "nvim-tree/nvim-web-devicons", -- optional
+    },
+    event = "LspAttach",
+    opts = {
+      lightbulb = {
+        enable = false,
+      },
+      code_action = {
+        show_server_name = true,
+      },
+    },
   },
 }

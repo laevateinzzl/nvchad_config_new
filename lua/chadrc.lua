@@ -24,7 +24,7 @@ M.nvdash = {
     { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
     { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
     -- project
-    { txt = "  Projects", keys = "pp", cmd = "Telescope projects" },
+    { txt = "  Projects", keys = "pp", cmd = "ProjectMgr" },
 
     { txt = "─", hl = "NvDashLazy", no_gap = true, rep = true },
   },
