@@ -33,4 +33,5 @@ map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "De
 map("n", "<Leader>pp", "<cmd>lua vim.cmd('ProjectMgr')<CR>", { desc = "Project manager" })
 
 -- symbols
-map("n", "<Leader>fs", "<cmd>lua vim.cmd('Telescope lsp_document_symbols')<CR>", { desc = "Project manager" })
+map("n", "<Leader>fs", "<cmd>lua vim.cmd('Telescope lsp_document_symbols')<CR>", { desc = "Symbol" })
+map("n", "<Leader>cs", "<cmd>lua vim.cmd('Lspsaga outline')<CR>", { desc = "Symbol" })
