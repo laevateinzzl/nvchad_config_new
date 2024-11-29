@@ -30,8 +30,24 @@ map("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugge
 map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
 
 -- project
-map("n", "<Leader>pp", "<cmd>lua vim.cmd('ProjectMgr')<CR>", { desc = "Project manager" })
+map("n", "<Leader>pp", "<cmd>lua vim.cmd('Telescope projects')<CR>", { desc = "Project manager" })
 
 -- symbols
 map("n", "<Leader>fs", "<cmd>lua vim.cmd('Telescope lsp_document_symbols')<CR>", { desc = "Symbol" })
 map("n", "<Leader>cs", "<cmd>lua vim.cmd('Lspsaga outline')<CR>", { desc = "Symbol" })
+
+-- spectre
+map(
+  "n",
+  "<Leader>sw",
+  "<cmd>lua require('spectre').open_visual({select_word=true})<CR>",
+  { desc = "Search current word" }
+)
+map("v", "<Leader>sw", "<cmd>lua require('spectre').open_visual()<CR>", { desc = "Search current word" })
+map("n", "<Leader>ss", "<cmd>lua require('spectre').toggle()<CR>", { desc = "Search" })
+map(
+  "n",
+  "<Leader>sp",
+  "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>",
+  { desc = "Search on current file" }
+)

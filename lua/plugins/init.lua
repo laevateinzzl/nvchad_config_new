@@ -90,20 +90,20 @@ return {
       }
     end,
   },
-  -- {
-  --   "ray-x/go.nvim",
-  --   dependencies = { -- optional packages
-  --     "ray-x/guihua.lua",
-  --     "neovim/nvim-lspconfig",
-  --     "nvim-treesitter/nvim-treesitter",
-  --   },
-  --   config = function()
-  --     require("go").setup()
-  --   end,
-  --   event = { "CmdlineEnter" },
-  --   ft = { "go", "gomod" },
-  --   build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
-  -- },
+  {
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+  },
   {
     "zbirenbaum/copilot.lua",
     lazy = false,
@@ -138,28 +138,29 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     },
   },
-  -- {
-  --   "jay-babu/project.nvim",
-  --   main = "project_nvim",
-  --   event = "VeryLazy",
-  --   opts = { ignore_lsp = { "lua_ls" } },
-  --   specs = {
-  --     {
-  --       "nvim-telescope/telescope.nvim",
-  --       optional = true,
-  --       dependencies = { "jay-babu/project.nvim" },
-  --       opts = function()
-  --         require("telescope").load_extension "projects"
-  --       end,
-  --     },
-  --   },
-  -- },
+  {
+    "jay-babu/project.nvim",
+    main = "project_nvim",
+    event = "VeryLazy",
+    opts = { ignore_lsp = { "lua_ls" } },
+    specs = {
+      {
+        "nvim-telescope/telescope.nvim",
+        optional = true,
+        dependencies = { "jay-babu/project.nvim" },
+        opts = function()
+          require("telescope").load_extension "projects"
+        end,
+      },
+    },
+  },
   {
     "ray-x/sad.nvim",
     dependencies = { "ray-x/guihua.lua", build = "cd lua/fzy && make" },
@@ -224,40 +225,26 @@ return {
       },
     },
   },
-  {
-    "olexsmir/gopher.nvim",
-    ft = "go",
-    -- branch = "develop", -- if you want develop branch
-    -- keep in mind, it might break everything
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "mfussenegger/nvim-dap", -- (optional) only if you use `gopher.dap`
-    },
-    -- (optional) will update plugin's deps on every update
-    build = function()
-      vim.cmd.GoInstallDeps()
-    end,
-    ---@type gopher.Config
-    opts = {},
-  },
-  {
-    "charludo/projectmgr.nvim",
-    lazy = false, -- important!
-  },
   -- {
-  --   "SmiteshP/nvim-navic",
-  --   event = "LspAttach",
-  --   config = function()
-  --     dofile(vim.g.base46_cache .. "navic")
-  --
-  --     require("nvim-navic").setup {
-  --       highlight = true,
-  --       lsp = { auto_attach = true },
-  --     }
-  --
-  --     vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+  --   "olexsmir/gopher.nvim",
+  --   ft = "go",
+  --   -- branch = "develop", -- if you want develop branch
+  --   -- keep in mind, it might break everything
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "mfussenegger/nvim-dap", -- (optional) only if you use `gopher.dap`
+  --   },
+  --   -- (optional) will update plugin's deps on every update
+  --   build = function()
+  --     vim.cmd.GoInstallDeps()
   --   end,
+  --   ---@type gopher.Config
+  --   opts = {},
+  -- },
+  -- {
+  --   "charludo/projectmgr.nvim",
+  --   lazy = false, -- important!
   -- },
   {
     "nvimdev/lspsaga.nvim",
@@ -274,5 +261,12 @@ return {
         show_server_name = true,
       },
     },
+  },
+  {
+    "nvim-pack/nvim-spectre",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    lazy = true,
   },
 }
