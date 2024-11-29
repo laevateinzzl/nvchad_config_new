@@ -51,3 +51,6 @@ map(
   "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>",
   { desc = "Search on current file" }
 )
+
+-- golang testfunc
+map("n", "<Leader>tf", "<cmd>lua vim.cmd('GoTestFunc -n 1 -v -F')<CR>", { desc = "Run Func Test" })
